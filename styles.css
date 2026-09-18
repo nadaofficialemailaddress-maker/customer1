@@ -240,6 +240,8 @@ section.alt { background: var(--bg-alt); }
   aspect-ratio: 1/1;
   background: var(--bg-alt);
   display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 .feature-grid .tile.lead figure { aspect-ratio: 16/11; }
 .feature-grid .price { color: var(--sage-deep); font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -317,7 +319,8 @@ section.alt { background: var(--bg-alt); }
   .split, .split.reverse { grid-template-columns: 1fr; }
   .split.reverse .split-figure { order: -1; }
 }
-.split-figure { aspect-ratio: 4/3; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; }
+.split-figure { aspect-ratio: 4/3; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.split-figure img { width: 100%; height: 100%; object-fit: cover; }
 .split-copy { display: grid; gap: 16px; }
 .split-copy .lede { max-width: 52ch; }
 
@@ -423,6 +426,19 @@ footer { border-top: 1px solid var(--line); padding-block: 52px 30px; font-size:
   background: color-mix(in srgb, var(--card) 75%, transparent);
   padding: 3px 8px;
   border-radius: 999px;
+}
+.photo-tile:has(img)::after { content: none; }
+.photo-tile img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* figure/card images (product photography, no gradient placeholder) */
+.card figure img, .feature-grid figure img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute; inset: 0;
 }
 
 /* ================= Hero (lifestyle + floating cards) ================= */

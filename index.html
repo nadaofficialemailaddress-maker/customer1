@@ -47,7 +47,7 @@
   </div>
 </header>
 
-<!-- HERO: hero-visual/.photo-tile و float-card ها placeholder هستند؛ با عکس واقعی محصول/کارگاه جایگزین شوند -->
+<!-- HERO -->
 <section class="hero-lifestyle">
   <div class="wrap">
     <div class="hero-copy">
@@ -64,19 +64,19 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="photo-tile" data-label="عکس کارگاه/محصول">
-        <svg width="150" height="180" viewBox="0 0 150 180"><path class="vessel-fill" d="M56 22H100V42C100 42 126 64 126 104C126 148 104 172 78 172C52 172 30 148 30 104C30 64 56 42 56 42V22Z"/></svg>
+      <div class="photo-tile">
+        <img src="images/hero.jpg" alt="میز صبحانه با ظروف سفالی دست‌ساز کوزه" loading="eager">
       </div>
       <div class="float-card fc-1">
-        <div class="photo-tile" data-label=""><svg width="26" height="26" viewBox="0 0 26 26"><path class="vessel-fill brass" d="M9 6H17V10C17 10 21 14 21 18C21 21.3 18.5 23 13 23C7.5 23 5 21.3 5 18C5 14 9 10 9 10V6Z"/></svg></div>
+        <div class="photo-tile"><img src="images/cup-sage.jpg" alt="فنجان اسپرسو لعاب یشمی"></div>
         <div><b>فنجان اسپرسو</b><span class="price">۲۴۰,۰۰۰ ت</span></div>
       </div>
       <div class="float-card fc-2">
-        <div class="photo-tile" data-label=""><svg width="26" height="26" viewBox="0 0 26 26"><ellipse class="vessel-fill" cx="13" cy="14" rx="9" ry="4"/></svg></div>
+        <div class="photo-tile"><img src="images/bowl-raw.jpg" alt="کاسه سفالی خام"></div>
         <div><b>کاسه خام</b><span class="price">۴۸۰,۰۰۰ ت</span></div>
       </div>
       <div class="float-card fc-3">
-        <div class="photo-tile" data-label=""><svg width="26" height="26" viewBox="0 0 26 26"><path class="vessel-fill" d="M10 4H16V8C16 8 20 12 20 17C20 20.5 17.5 22 13 22C8.5 22 6 20.5 6 17C6 12 10 8 10 8V4Z"/></svg></div>
+        <div class="photo-tile"><img src="images/vase-brass.jpg" alt="گلدان استوانه‌ای بلند"></div>
         <div><b>گلدان بلند</b><span class="price">۶۹۰,۰۰۰ ت</span></div>
       </div>
     </div>
@@ -104,7 +104,6 @@
   </div>
 </section>
 
-<!-- CATEGORY TILES: هر .photo-tile باید با عکس واقعی از دسته‌ی محصول جایگزین شود -->
 <section class="alt">
   <div class="wrap">
     <div class="section-head">
@@ -113,19 +112,19 @@
     </div>
     <div class="cat-tiles">
       <a href="shop.html">
-        <div class="photo-tile" data-label="عکس"><svg width="46" height="46" viewBox="0 0 46 46"><path class="vessel-fill" d="M16 10H30V16C30 16 38 22 38 30C38 37 32 40 23 40C14 40 8 37 8 30C8 22 16 16 16 16V10Z"/></svg></div>
+        <div class="photo-tile"><img src="images/mug-terracotta.jpg" alt="لیوان و فنجان"></div>
         <b>لیوان و فنجان</b><span class="go">مشاهده →</span>
       </a>
       <a href="shop.html">
-        <div class="photo-tile" data-label="عکس"><svg width="46" height="46" viewBox="0 0 46 46"><ellipse class="vessel-fill" cx="23" cy="25" rx="17" ry="6"/></svg></div>
+        <div class="photo-tile"><img src="images/bowl-raw.jpg" alt="کاسه و بشقاب"></div>
         <b>کاسه و بشقاب</b><span class="go">مشاهده →</span>
       </a>
       <a href="shop.html">
-        <div class="photo-tile" data-label="عکس"><svg width="46" height="46" viewBox="0 0 46 46"><path class="vessel-fill brass" d="M18 7H28V13C28 13 32 21 32 31C32 38 27 41 23 41C19 41 14 38 14 31C14 21 18 13 18 13V7Z"/></svg></div>
+        <div class="photo-tile"><img src="images/vase-brass.jpg" alt="گلدان"></div>
         <b>گلدان</b><span class="go">مشاهده →</span>
       </a>
       <a href="shop.html">
-        <div class="photo-tile" data-label="عکس"><svg width="46" height="46" viewBox="0 0 46 46"><ellipse class="vessel-fill" cx="16" cy="28" rx="7" ry="3.5"/><ellipse class="vessel-fill brass" cx="30" cy="28" rx="7" ry="3.5"/></svg></div>
+        <div class="photo-tile"><img src="images/tea-set.jpg" alt="سرویس"></div>
         <b>سرویس</b><span class="go">مشاهده →</span>
       </a>
       <a href="shop.html">
@@ -140,7 +139,6 @@
   </div>
 </section>
 
-<!-- NEW ARRIVALS: کارت‌ها روی طرح کاتالوگ shop.html هستند؛ عکس، امتیاز و برچسب هم دارند -->
 <section>
   <div class="wrap">
     <div class="section-head">
@@ -152,7 +150,7 @@
         <span class="badge-tag">جدید</span>
         <button class="wishlist-btn" aria-label="افزودن به علاقه‌مندی‌ها"><svg width="15" height="14" viewBox="0 0 15 14" fill="none"><path d="M7.5 13C7.5 13 1 9 1 4.8C1 2.7 2.6 1 4.6 1C5.8 1 6.8 1.6 7.5 2.5C8.2 1.6 9.2 1 10.4 1C12.4 1 14 2.7 14 4.8C14 9 7.5 13 7.5 13Z" stroke="currentColor" stroke-width="1.2"/></svg></button>
         <figure>
-          <svg width="90" height="90" viewBox="0 0 90 90"><path class="vessel-fill" d="M30 20H60V32C60 32 74 44 74 58C74 72 63 80 45 80C27 80 16 72 16 58C16 44 30 32 30 32V20Z"/></svg>
+          <img src="images/mug-terracotta.jpg" alt="لیوان دوگوش «بامداد»">
           <button class="quick-add">افزودن به سبد</button>
         </figure>
         <span class="cat">لیوان و فنجان</span>
@@ -165,7 +163,7 @@
         <span class="badge-tag sale">۱۵٪-</span>
         <button class="wishlist-btn" aria-label="افزودن به علاقه‌مندی‌ها"><svg width="15" height="14" viewBox="0 0 15 14" fill="none"><path d="M7.5 13C7.5 13 1 9 1 4.8C1 2.7 2.6 1 4.6 1C5.8 1 6.8 1.6 7.5 2.5C8.2 1.6 9.2 1 10.4 1C12.4 1 14 2.7 14 4.8C14 9 7.5 13 7.5 13Z" stroke="currentColor" stroke-width="1.2"/></svg></button>
         <figure>
-          <svg width="90" height="90" viewBox="0 0 90 90"><path class="vessel-fill brass" d="M32 30H58V38C58 38 68 46 68 58C68 70 58 76 45 76C32 76 22 70 22 58C22 46 32 38 32 38V30Z"/></svg>
+          <img src="images/cup-sage.jpg" alt="فنجان اسپرسو، لعاب یشمی">
           <button class="quick-add">افزودن به سبد</button>
         </figure>
         <span class="cat">لیوان و فنجان</span>
@@ -177,7 +175,7 @@
       <div class="card">
         <button class="wishlist-btn" aria-label="افزودن به علاقه‌مندی‌ها"><svg width="15" height="14" viewBox="0 0 15 14" fill="none"><path d="M7.5 13C7.5 13 1 9 1 4.8C1 2.7 2.6 1 4.6 1C5.8 1 6.8 1.6 7.5 2.5C8.2 1.6 9.2 1 10.4 1C12.4 1 14 2.7 14 4.8C14 9 7.5 13 7.5 13Z" stroke="currentColor" stroke-width="1.2"/></svg></button>
         <figure>
-          <svg width="90" height="90" viewBox="0 0 90 90"><ellipse class="vessel-fill" cx="45" cy="48" rx="34" ry="11"/></svg>
+          <img src="images/bowl-raw.jpg" alt="کاسه سفالی خام">
           <button class="quick-add">افزودن به سبد</button>
         </figure>
         <span class="cat">کاسه و بشقاب</span>
@@ -198,7 +196,7 @@
     <div class="feature-grid">
       <div class="tile lead">
         <span class="badge-tag">پرفروش</span>
-        <figure><svg width="220" height="150" viewBox="0 0 220 150"><path class="vessel-fill" d="M85 30H135V50C135 50 165 75 165 100C165 122 145 132 110 132C75 132 55 122 55 100C55 75 85 50 85 50V30Z"/></svg></figure>
+        <figure><img src="images/tea-set.jpg" alt="سرویس چای‌خوری ۶ نفره"></figure>
         <span class="cat">سرویس</span>
         <h3>سرویس چای‌خوری ۶ نفره</h3>
         <div class="rating"><span class="stars">★★★★★</span>(۱۰۴)</div>
@@ -206,7 +204,7 @@
       </div>
       <div class="tile">
         <span class="badge-tag">پرفروش</span>
-        <figure><svg width="90" height="90" viewBox="0 0 90 90"><path class="vessel-fill brass" d="M35 14H55V26C55 26 62 40 62 60C62 74 54 80 45 80C36 80 28 74 28 60C28 40 35 26 35 26V14Z"/></svg></figure>
+        <figure><img src="images/vase-brass.jpg" alt="گلدان استوانه‌ای بلند"></figure>
         <span class="cat">گلدان</span>
         <h3>گلدان استوانه‌ای بلند</h3>
         <div class="rating"><span class="stars">★★★★★</span>(۵۸)</div>
