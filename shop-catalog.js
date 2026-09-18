@@ -36,9 +36,37 @@
     );
   }
 
+  function skeletonMarkup(count) {
+    var one =
+      '<div class="skeleton-card">' +
+        '<div class="skeleton-line sk-image"></div>' +
+        '<div class="skeleton-line sk-sm"></div>' +
+        '<div class="skeleton-line sk-md"></div>' +
+        '<div class="skeleton-line sk-lg"></div>' +
+      '</div>';
+    return new Array(count + 1).join(one);
+  }
+
+  function paint(grid, rows) {
+    grid.innerHTML = rows.map(renderCard).join('');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+    grid.querySelectorAll('.card').forEach(function (card, i) {
+      card.classList.add('product-enter');
+      card.style.animationDelay = Math.min(i, 8) * 0.07 + 's';
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var grid = document.getElementById('product-grid');
-    if (!grid || typeof window.supabase === 'undefined') return;
+    if (!grid) return;
+
+    grid.innerHTML = skeletonMarkup(6);
+
+    if (typeof window.supabase === 'undefined') {
+      grid.innerHTML = '<p style="padding: 40px; color: var(--ink-soft); grid-column: 1 / -1;">مشکلی در بارگذاری فروشگاه پیش آمد. لطفاً صفحه را دوباره بارگذاری کنید.</p>';
+      return;
+    }
 
     var client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -48,13 +76,13 @@
       .order('sort_order')
       .then(function (res) {
         if (res.error || !res.data || !res.data.length) {
-          grid.innerHTML = '<p style="padding: 40px; color: var(--ink-soft);">در حال حاضر محصولی برای نمایش نیست.</p>';
+          grid.innerHTML = '<p style="padding: 40px; color: var(--ink-soft); grid-column: 1 / -1;">در حال حاضر محصولی برای نمایش نیست.</p>';
           return;
         }
-        grid.innerHTML = res.data.map(renderCard).join('');
+        paint(grid, res.data);
       })
       .catch(function () {
-        grid.innerHTML = '<p style="padding: 40px; color: var(--ink-soft);">مشکلی در بارگذاری فروشگاه پیش آمد. لطفاً صفحه را دوباره بارگذاری کنید.</p>';
+        grid.innerHTML = '<p style="padding: 40px; color: var(--ink-soft); grid-column: 1 / -1;">مشکلی در بارگذاری فروشگاه پیش آمد. لطفاً صفحه را دوباره بارگذاری کنید.</p>';
       });
   });
 })();
