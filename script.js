@@ -9,18 +9,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var filterButtons = document.querySelectorAll('.filters button');
-  var cards = document.querySelectorAll('[data-category]');
-  if (filterButtons.length && cards.length) {
-    filterButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        filterButtons.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
-        btn.setAttribute('aria-pressed', 'true');
-        var cat = btn.dataset.filter;
-        cards.forEach(function (card) {
-          var match = cat === 'all' || card.dataset.category === cat;
-          card.style.display = match ? '' : 'none';
-        });
+  var filterBar = document.querySelector('.filters');
+  if (filterBar) {
+    filterBar.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-filter]');
+      if (!btn) return;
+      filterBar.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+      btn.setAttribute('aria-pressed', 'true');
+      var cat = btn.dataset.filter;
+      document.querySelectorAll('[data-category]').forEach(function (card) {
+        var match = cat === 'all' || card.dataset.category === cat;
+        card.style.display = match ? '' : 'none';
       });
     });
   }
