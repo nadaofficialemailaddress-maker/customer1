@@ -616,58 +616,121 @@ footer { border-top: 1px solid var(--line); padding-block: 56px 28px; font-size:
    ============================================================ */
 @media (max-width: 620px) {
   .wrap { padding-inline: 20px; }
-  section { padding-block: 56px; }
+  section { padding-block: 52px; }
 
   h1 { font-size: clamp(2rem, 8.4vw, 2.7rem); }
-  h2 { font-size: clamp(1.7rem, 6.6vw, 2.2rem); }
+  h2 { font-size: clamp(1.6rem, 6.2vw, 2rem); }
 
-  .hero { padding-block: 26px 6px; }
-  .hero-head { gap: 16px; margin-bottom: 22px; }
-  .hero-aside { max-width: none; }
+  /* --- hero: image leads, copy centred beneath it --- */
+  .hero { padding-block: 22px 4px; }
+  .hero-head { gap: 14px; margin-bottom: 20px; text-align: center; }
+  .hero-aside { max-width: 34ch; margin-inline: auto; }
 
-  .hero-panel { padding: 26px 20px; gap: 30px; border-radius: var(--r-lg); }
-  .hero-copy { gap: 16px; }
-  .hero-copy h2 { font-size: 1.45rem; }
-  .hero-copy p { max-width: none; }
+  .hero-panel { padding: 24px 20px 28px; gap: 24px; border-radius: var(--r-lg); }
+  .hero-panel .spotlight { order: -1; }
+  .spotlight figure { aspect-ratio: 16/11; }
 
-  /* CTAs become one full-width stack instead of two ragged pills */
-  .hero-cta { display: grid; gap: 10px; }
-  .hero-cta .btn { width: 100%; }
+  .hero-copy { gap: 14px; justify-items: center; text-align: center; }
+  .hero-copy h2 { font-size: 1.4rem; }
+  .hero-copy p { max-width: 36ch; }
+  .hero-cta { display: grid; justify-items: center; gap: 10px; }
 
-  /* the feature block is centred on desktop; stacked it must share
-     the panel's left edge like everything above it */
-  .hero-feature { justify-items: stretch; gap: 18px; }
-  .feature-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .hero-feature { justify-items: center; gap: 16px; }
+  .feature-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; }
   .pill { min-width: 0; padding: 13px 6px; font-size: 0.68rem; }
-  .social-proof { justify-content: flex-start; }
+  .social-proof { justify-content: center; }
 
-  /* two columns squeezed every label onto two lines */
-  .trust { grid-template-columns: 1fr; gap: 16px; padding-block: 28px; }
+  /* --- centred section headings with a short rule, Flone-style --- */
+  .section-head { flex-direction: column; align-items: center; text-align: center; gap: 16px; margin-bottom: 30px; }
+  .section-head .stack { justify-items: center; gap: 10px; }
+  .section-head .stack h2::after {
+    content: "";
+    display: block;
+    width: 54px; height: 2px;
+    margin: 14px auto 0;
+    background: var(--ink);
+  }
+  .section-head .lede { text-align: center; margin-inline: auto; }
 
+  .page-head { text-align: center; justify-items: center; }
+  .page-head .lede { margin-inline: auto; }
+
+  /* --- trust row: centred, stacked, like the reference's 3 features --- */
+  .trust { grid-template-columns: 1fr; gap: 0; padding-block: 8px; border: none; }
+  .trust .item {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding-block: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .trust .item:last-child { border-bottom: none; }
+
+  /* --- products: flat and borderless, two per row --- */
+  .grid, .bento { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+  .bento .card.lead { grid-column: span 2; grid-row: auto; }
+  .bento .card.lead figure { aspect-ratio: 16/11; min-height: 0; }
+  .bento .card.lead .price { font-size: 1.1rem; }
+
+  .card {
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+  .card::after { content: none; }
+  .card:hover { transform: none; }
+  .card figure { border-radius: var(--r-sm); background: var(--paper-2); }
+  .card .body { padding: 0; gap: 4px; }
+  .card h3 { font-size: 0.92rem; }
+  .card .cat { font-size: 0.66rem; }
+  .card .price { font-size: 0.98rem; }
+  .card .rating { font-size: 0.72rem; }
+  .badge { top: 8px; left: 8px; padding: 4px 10px; font-size: 0.62rem; }
+  .wish { top: 8px; right: 8px; width: 28px; height: 28px; }
+
+  .filters { justify-content: center; gap: 8px; }
+  .filters button { padding: 8px 15px; font-size: 0.8rem; }
+
+  .cat-rail { gap: 14px; }
   .cat-card figcaption { left: 10px; right: 10px; bottom: 10px; padding: 9px 13px; font-size: 0.76rem; }
 
-  .section-head { gap: 14px; margin-bottom: 26px; }
-  .section-head .btn { width: 100%; }
+  /* --- editorial blocks --- */
+  .split { gap: 24px; text-align: center; }
+  .split-copy { justify-items: center; }
+  .split-copy .lede { margin-inline: auto; }
+  .split-copy .btn { justify-self: center; }
+  .stats { gap: 26px; justify-content: center; }
+  .stat { text-align: center; }
+  .stat b { font-size: 1.8rem; }
 
-  .split { gap: 26px; }
-  .stats { gap: 26px; }
-  .stat b { font-size: 1.9rem; }
-
-  .panel { padding: 28px 22px; border-radius: var(--r-lg); }
-  .panel .btn { width: 100%; }
+  .panel { padding: 30px 22px; border-radius: var(--r-lg); text-align: center; justify-items: center; }
+  .panel .btn { justify-self: center; }
+  .countdown { justify-content: center; }
   .countdown .unit { flex: 1; min-width: 0; }
 
-  .quote-band { border-radius: var(--r-lg); padding: 48px 22px; }
+  .quote-band { border-radius: var(--r-lg); padding: 44px 22px; }
 
-  .newsletter .wrap { padding-block: 46px; gap: 20px; }
+  .newsletter .wrap { padding-block: 44px; gap: 18px; text-align: center; justify-content: center; }
+  .newsletter h2 { max-width: none; }
+  .newsletter h2::after {
+    content: "";
+    display: block;
+    width: 54px; height: 2px;
+    margin: 14px auto 0;
+    background: var(--on-dark);
+  }
+  .newsletter p { margin-inline: auto; }
   .newsletter form { display: grid; width: 100%; gap: 10px; }
-  .newsletter input { min-width: 0; width: 100%; }
+  .newsletter input { min-width: 0; width: 100%; text-align: center; }
   .newsletter .btn { width: 100%; }
 
   .form-grid .btn { width: 100%; justify-self: stretch; }
 
-  .footer-grid { gap: 28px; margin-bottom: 30px; }
-  .footer-bottom { gap: 6px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 26px; margin-bottom: 28px; }
+  .footer-grid > :first-child { grid-column: span 2; text-align: center; }
+  .footer-grid > :first-child p { margin-inline: auto; }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 6px; }
 
   .toast { left: 16px; right: 16px; bottom: 16px; text-align: center; }
 }
