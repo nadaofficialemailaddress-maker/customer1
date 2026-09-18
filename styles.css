@@ -386,6 +386,165 @@ footer { border-top: 1px solid var(--line); padding-block: 52px 30px; font-size:
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
 
+/* ================= Utility bar ================= */
+.util-bar {
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 0.82rem;
+}
+.util-bar .wrap {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  padding-block: 9px;
+  flex-wrap: wrap;
+}
+.util-bar span { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+.util-bar svg { flex-shrink: 0; }
+@media (max-width: 640px) { .util-bar span:nth-child(2) { display: none; } }
+
+/* ================= Photo tile (placeholder for real photography) ================= */
+.photo-tile {
+  background:
+    radial-gradient(120% 140% at 70% 20%, color-mix(in srgb, var(--brass) 22%, transparent), transparent 60%),
+    linear-gradient(155deg, var(--bg-alt), var(--card));
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.photo-tile .vessel-fill { opacity: 0.9; }
+.photo-tile::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 8px; inset-inline-start: 10px;
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--card) 75%, transparent);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+/* ================= Hero (lifestyle + floating cards) ================= */
+.hero-lifestyle .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+  padding-block: 52px 60px;
+}
+.hero-lifestyle .hero-copy { display: grid; gap: 18px; }
+.hero-lifestyle .kicker { color: var(--brass); }
+.hero-lifestyle .btn-row { display: flex; gap: 14px; margin-top: 4px; flex-wrap: wrap; }
+.trust-row-mini { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 0.85rem; color: var(--ink-soft); }
+.trust-row-mini .avatars { display: flex; }
+.trust-row-mini .avatars span {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--sage); color: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700;
+  border: 2px solid var(--bg);
+  margin-inline-start: -10px;
+}
+.trust-row-mini .avatars span:first-child { margin-inline-start: 0; }
+
+.hero-visual { position: relative; }
+.hero-visual .photo-tile { aspect-ratio: 4/5; border-radius: 4px; }
+.float-card {
+  position: absolute;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 12px 28px -18px rgba(20, 18, 10, 0.35);
+  font-size: 0.82rem;
+}
+.float-card .photo-tile { width: 46px; height: 46px; border-radius: 4px; flex-shrink: 0; }
+.float-card b { display: block; font-size: 0.85rem; }
+.float-card span.price { color: var(--sage-deep); font-weight: 700; font-variant-numeric: tabular-nums; font-size: 0.82rem; }
+.float-card.fc-1 { top: 6%; inset-inline-start: -6%; }
+.float-card.fc-2 { top: 18%; inset-inline-end: -8%; }
+.float-card.fc-3 { bottom: 10%; inset-inline-start: -4%; }
+@media (max-width: 900px) {
+  .hero-lifestyle .wrap { grid-template-columns: 1fr; padding-block: 32px 40px; }
+  .hero-visual { order: -1; max-width: 380px; margin: 0 auto 20px; }
+  .float-card { display: none; }
+}
+
+/* ================= Trust row ================= */
+.trust-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-block: 30px;
+  border-block: 1px solid var(--line);
+}
+.trust-row .item { display: flex; align-items: center; gap: 12px; }
+.trust-row .item svg { flex-shrink: 0; color: var(--sage-deep); }
+.trust-row .item b { display: block; font-size: 0.9rem; }
+.trust-row .item span { font-size: 0.8rem; color: var(--ink-soft); }
+@media (max-width: 760px) { .trust-row { grid-template-columns: repeat(2, 1fr); } }
+
+/* ================= Category tiles ================= */
+.cat-tiles {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+.cat-tiles a { display: grid; gap: 10px; }
+.cat-tiles .photo-tile { aspect-ratio: 1/1; border-radius: 6px; }
+.cat-tiles b { font-size: 0.86rem; }
+.cat-tiles .go { font-size: 0.76rem; color: var(--ink-soft); display: flex; align-items: center; gap: 4px; }
+@media (max-width: 900px) { .cat-tiles { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 520px) { .cat-tiles { grid-template-columns: repeat(2, 1fr); } }
+
+/* ================= Rating + badge + wishlist ================= */
+.rating { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--ink-soft); }
+.rating .stars { display: flex; gap: 1px; color: var(--brass); }
+.badge-tag {
+  position: absolute; top: 10px; inset-inline-start: 10px;
+  background: var(--ink); color: var(--bg);
+  font-size: 0.68rem; font-weight: 600;
+  padding: 4px 10px; border-radius: 3px; z-index: 2;
+}
+.badge-tag.sale { background: var(--brass); }
+.wishlist-btn {
+  position: absolute; top: 10px; inset-inline-end: 10px; z-index: 2;
+  background: var(--card); border: 1px solid var(--line); border-radius: 50%;
+  width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+  color: var(--ink-soft); cursor: pointer;
+}
+.wishlist-btn:hover { color: var(--sage-deep); border-color: var(--sage-deep); }
+.card .price-row-sm { display: flex; align-items: baseline; gap: 8px; }
+.card .price-strike { color: var(--ink-soft); text-decoration: line-through; font-size: 0.82rem; font-variant-numeric: tabular-nums; }
+
+/* ================= Promo duo (flash sale + collection) ================= */
+.promo-duo {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.promo-duo .panel {
+  padding: 40px;
+  display: grid;
+  gap: 16px;
+  align-content: center;
+}
+.promo-duo .panel.flash { background: color-mix(in srgb, var(--brass) 14%, var(--card)); }
+.promo-duo .panel.collection { background: var(--ink); color: var(--bg); }
+.promo-duo .panel.collection .lede { color: color-mix(in srgb, var(--bg) 78%, transparent); }
+.countdown { display: flex; gap: 10px; font-variant-numeric: tabular-nums; }
+.countdown .unit {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 4px; padding: 8px 12px; text-align: center; min-width: 54px;
+}
+.countdown .unit b { display: block; font-size: 1.2rem; }
+.countdown .unit span { font-size: 0.68rem; color: var(--ink-soft); }
+@media (max-width: 760px) { .promo-duo { grid-template-columns: 1fr; } }
+
 /* ================= Utility ================= */
 .center { text-align: center; }
 .mt { margin-top: 44px; }

@@ -33,4 +33,19 @@ document.addEventListener('DOMContentLoaded', function () {
       if (note) note.textContent = 'پیام شما ثبت شد. طی یک روز کاری پاسخ می‌دهیم.';
     });
   }
+
+  var cdH = document.getElementById('cd-h');
+  var cdM = document.getElementById('cd-m');
+  var cdS = document.getElementById('cd-s');
+  if (cdH && cdM && cdS) {
+    var remaining = parseInt(cdH.textContent, 10) * 3600 + parseInt(cdM.textContent, 10) * 60 + parseInt(cdS.textContent, 10);
+    var toFa = function (n) { return String(n).padStart(2, '0').replace(/[0-9]/g, function (d) { return '۰۱۲۳۴۵۶۷۸۹'[d]; }); };
+    setInterval(function () {
+      if (remaining <= 0) return;
+      remaining -= 1;
+      cdH.textContent = toFa(Math.floor(remaining / 3600));
+      cdM.textContent = toFa(Math.floor((remaining % 3600) / 60));
+      cdS.textContent = toFa(remaining % 60);
+    }, 1000);
+  }
 });
