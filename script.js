@@ -33,6 +33,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll(
+    '.section-head, .card, .tile, .split-copy, .split-figure, .quote, .promo-duo .panel, .cat-tiles a, .stat'
+  );
+  if (revealEls.length && 'IntersectionObserver' in window && !reduceMotion) {
+    var groupIndex = new Map();
+    revealEls.forEach(function (el) {
+      var parent = el.parentElement;
+      var idx = groupIndex.get(parent) || 0;
+      groupIndex.set(parent, idx + 1);
+      el.style.transitionDelay = (Math.min(idx, 5) * 0.08) + 's';
+      el.setAttribute('data-revealed', 'false');
+    });
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.setAttribute('data-revealed', 'true');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
   var cdH = document.getElementById('cd-h');
   var cdM = document.getElementById('cd-m');
   var cdS = document.getElementById('cd-s');
